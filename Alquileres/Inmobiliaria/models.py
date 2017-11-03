@@ -6,18 +6,10 @@ from django.contrib.auth.models import User
 # Reserva de una propiedad
 class Reserva(models.Model):
 	numero_reserva = models.IntegerField()
-	fecha_reserv = models.DateTimeField()
 	total = models.DecimalField(max_digits = 6, decimal_places = 2)
 
 	def get_fechaAlquiler(self):
 		return self.fechaAlquileres_set.all()
-
-# Fecha de alquiler de la propiedad
-class FechaAlquiler(models.Model):
-	fecha_reserva = models.ForeignKey(Reserva)
-
-	class Meta:
-		verbose_name_plural = 'fechaAlquileres'
 
 # Ciudades que contienen propiedades
 class Ciudad(models.Model):
@@ -32,6 +24,34 @@ class Ciudad(models.Model):
 	def get_propiedades(self):
 		return self.propiedades_set.all()
 
+# Propiedad en si
+class Propiedad (models.Model):
+
+	descripcion = models.CharField(max_length=50)
+	precio_diario = models.DecimalField(max_digits = 6, decimal_places = 2)
+	imagen = models.CharField(null = True, blank = True, max_length = 200)
+	titulo = models.CharField(max_length=50)
+	numero_ficha = models.IntegerField()
+	max_pax = models.IntegerField()
+	ciudad = models.ForeignKey(Ciudad)
+	reserva = models.ForeignKey(Reserva)
+	anfitrion = models.ForeignKey(User)
+	
+	def __str__ (self):
+		return self.descripcion;
+	
+	class Meta:
+		verbose_name_plural = 'Propiedades'
+
+# Fecha de alquiler de la propiedad
+class FechaAlquiler(models.Model):
+	propiedad = models.ForeignKey(Propiedad) #isDisponible
+	fecha_que_se_puede_alquilar = models.DateField()
+	reserva = models.ForeignKey(Reserva, null = True, blank = True)
+
+	class Meta:
+		verbose_name_plural = 'fechaAlquileres'
+
 # Huesped de una propiedad
 class Huesped(models.Model): #tiene 1 reserva
 	nombre = models.CharField(max_length = 50)
@@ -43,24 +63,4 @@ class Huesped(models.Model): #tiene 1 reserva
 
 	class Meta:
 		verbose_name_plural = 'Huespedes'
-
-# Propiedad en si
-class Propiedad (models.Model):
-
-	descripcion = models.CharField(max_length=50)
-	precio_diario = models.DecimalField(max_digits = 6, decimal_places = 2)
-	imagen = models.CharField(null = True, blank = True, max_length = 200)
-	titulo = models.CharField(max_length=50)
-	numero_ficha = models.IntegerField()
-	max_pax = models.IntegerField()
-	fecha_alquileres = models.ManyToManyField(FechaAlquiler) #isDisponible
-	ciudad = models.ForeignKey(Ciudad)
-	reserva = models.ForeignKey(Reserva)
-	anfitrion = models.ForeignKey(User)
-	
-	def __str__ (self):
-		return self.descripcion;
-	
-	class Meta:
-		verbose_name_plural = 'Propiedades'
 
