@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>{% block titulo %}Gestion de Alquileres{% endblock %}</title>
+	</head>
+	<body>
+		<div id="navbar">
+		{% block navbar %}
+			<ul>
+				<li><a href="/Inmobiliaria/">Home</a></li>
+				<li><a href=""></a></li>
+				<li><a href=""></a></li>
+			</ul>
+		{% endblock %}
+		</div>
+
+		<div id="content">
+		{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>
