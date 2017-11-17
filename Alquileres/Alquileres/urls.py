@@ -19,5 +19,5 @@ from Inmobiliaria.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^Inmobiliaria$', indexView),
+    url(r'^Inmobiliaria/$', indexView),
 ]
