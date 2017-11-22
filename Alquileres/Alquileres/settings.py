@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hotel_app',
+    'Inmobiliaria',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'hotel_project.urls'
+ROOT_URLCONF = 'Alquileres.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hotel_project.wsgi.application'
+WSGI_APPLICATION = 'Alquileres.wsgi.application'
 
 
 # Database
