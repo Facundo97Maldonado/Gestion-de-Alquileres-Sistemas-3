@@ -1,5 +1,5 @@
 from django import forms
-from hotel_app.models import Resident
+from Inmobiliaria.models import Resident
 
 class ResidentForm(forms.ModelForm):
     class Meta:

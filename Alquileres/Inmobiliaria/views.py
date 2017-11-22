@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from hotel_app.models import City, Estate, Booking, Resident, RentalDate
-from hotel_app.forms import ResidentForm
+from Inmobiliaria.models import City, Estate, Booking, Resident, RentalDate
+from Inmobiliaria.forms import ResidentForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponse
@@ -39,7 +39,7 @@ def index_reserve(request, id_estate):
     if request.method == 'GET':
         #messages = None
         estate = Estate.objects.get(id = id_estate)
-        form = ResidentForm(initial={'name': 'Federico', 'surname': 'Palomero', 'email':'aldosivi@yahoo.com'})
+        form = ResidentForm(initial={'name': 'Facundo', 'surname': 'Maldonado', 'email':'facumaldo@hotmail.com'})
         now = datetime.datetime.now
         context = {
             'e': estate,
@@ -62,7 +62,7 @@ def index_reserve(request, id_estate):
             'e': estate
         }
 
-        messages.success(request, 'Reserva concretada con éxito')
+        messages.success(request, 'Se ha realizado su reserva')
         return render(request, 'reserve/index.html', context)
 
 def saveRangeDate(dateFrom, dateTo, booking, estate):
