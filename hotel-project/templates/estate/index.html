@@ -1,0 +1,91 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block title %}Tus Propiedades{% endblock %}
+
+{% block content %}
+<div class="container ml-container">
+    {% if estates %}
+    <h1 class="text-center">Propiedades disponibles</h1>
+    <hr>
+    <button class="btn btn-primary btnFilter" type="button" data-toggle="collapse" data-target="#div_filtro" aria-expanded="false" aria-controls="collapseExample" style="margin-bottom: 10px">
+        Filtrar <span class="glyphicon glyphicon-filter"></span>
+    </button>
+    <div class="collapse" id="div_filtro">
+        <div class="well ">
+            <form class="form-inline" method="GET" id="filterForm">
+                <input type="hidden" name="filter" value="true">
+                <div class="form-group">
+                    <label for="filtroCiudad">Ciudad</label>
+                    <select name="idCity" id="idCity" class="form-control">
+                        {% for c in cities %}
+                        <option value="{{c.id}}">{{c.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Máx Pax</label>
+                    <select name="maxPax" id="maxPax" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 o más</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Precio Máx ($)</label>
+                    <input type="number" name="maxPrice" class="form-control" value="5000">
+                </div>
+                <button type="submit" class="btn btn-default">Filtrar</button>
+            </form>
+        </div>
+    </div>
+    {% if request.GET.filter %}
+    <h3>Resultados de la búsqueda</h3>
+    {% endif %}
+    {% for e in estates %}
+    <div class="panel panel-default panel-hotel">
+
+        <div class="esquinero">
+            <span class="precio">$ {{e.price}} por día</span>
+            <div class="sombra"></div>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="{% static 'img/hotel.jpg' %}" class="img-responsive img-thumbnail img-estate" alt="">
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <a href="{% url 'hotel_app:estate_reserve' e.id %}"><h2><span class="glyphicon glyphicon-home"></span> {{e.title}}</h2></a>
+                            <h5>{{e.description}}</h5>
+                        </div>
+                        <div class="col-lg-4 text-right hotel-dates" style="color: rgba()">
+                            <p><b>Ciudad:</b> {{e.city}}</p>
+                            <p><b>Propietario:</b> {{e.host}}</p>
+                            <p><b>Max. Pax:</b> {{e.maxPax}}</p>
+                            <!--<p style="color: #04519b"><b>Fecha límite:</b> {{e.dateTo}}</p>-->
+                        </div>
+                    </div>
+                    <div class="well well-service">
+                        <h6>Servicios</h6>
+                        <p>{{e.services}}</p>
+                    </div>
+                    <div class="well well-confort">
+                        <h6>Comodidades</h6>
+                        <p>{{e.confort}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% elif e|length == 0 and request.GET.filter %}
+    <h1 class="text-center">No hay resultados con esa búsqueda</h1>
+    {% else %}
+    <h1 class="text-center">No hay hoteles disponibles</h1>
+    {% endif %}
+</div>
+{% endblock %}

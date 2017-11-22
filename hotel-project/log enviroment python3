@@ -1,0 +1,384 @@
+fede@fede-Suma-1025:~$ pip
+
+Usage:   
+  pip <command> [options]
+
+Commands:
+  install                     Install packages.
+  download                    Download packages.
+  uninstall                   Uninstall packages.
+  freeze                      Output installed packages in requirements format.
+  list                        List installed packages.
+  show                        Show information about installed packages.
+  check                       Verify installed packages have compatible dependencies.
+  search                      Search PyPI for packages.
+  wheel                       Build wheels from your requirements.
+  hash                        Compute hashes of package archives.
+  completion                  A helper command used for command completion.
+  help                        Show help for commands.
+
+General Options:
+  -h, --help                  Show help.
+  --isolated                  Run pip in an isolated mode, ignoring
+                              environment variables and user configuration.
+  -v, --verbose               Give more output. Option is additive, and can be
+                              used up to 3 times.
+  -V, --version               Show version and exit.
+  -q, --quiet                 Give less output. Option is additive, and can be
+                              used up to 3 times (corresponding to WARNING,
+                              ERROR, and CRITICAL logging levels).
+  --log <path>                Path to a verbose appending log.
+  --proxy <proxy>             Specify a proxy in the form
+                              [user:passwd@]proxy.server:port.
+  --retries <retries>         Maximum number of retries each connection should
+                              attempt (default 5 times).
+  --timeout <sec>             Set the socket timeout (default 15 seconds).
+  --exists-action <action>    Default action when a path already exists:
+                              (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
+  --trusted-host <hostname>   Mark this host as trusted, even though it does
+                              not have valid or any HTTPS.
+  --cert <path>               Path to alternate CA bundle.
+  --client-cert <path>        Path to SSL client certificate, a single file
+                              containing the private key and the certificate
+                              in PEM format.
+  --cache-dir <dir>           Store the cache data in <dir>.
+  --no-cache-dir              Disable the cache.
+  --disable-pip-version-check
+                              Don't periodically check PyPI to determine
+                              whether a new version of pip is available for
+                              download. Implied with --no-index.
+fede@fede-Suma-1025:~$ pip install Django
+Requirement already satisfied: Django in /usr/lib/python2.7/dist-packages
+fede@fede-Suma-1025:~$ python3 pip install Django
+python3: can't open file 'pip': [Errno 2] No such file or directory
+fede@fede-Suma-1025:~$ python3 --version
+Python 3.5.2
+fede@fede-Suma-1025:~$ ^C
+fede@fede-Suma-1025:~$ python3.6 --version
+Python 3.6.3
+fede@fede-Suma-1025:~$ cd Projects/hotel-project/
+fede@fede-Suma-1025:~/Projects/hotel-project$ python3.6 manage.py runserver
+Traceback (most recent call last):
+  File "manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 63, in apport_excepthook
+    from apport.fileutils import likely_packaged, get_recent_crashes
+  File "/usr/lib/python3/dist-packages/apport/__init__.py", line 5, in <module>
+    from apport.report import Report
+  File "/usr/lib/python3/dist-packages/apport/report.py", line 30, in <module>
+    import apport.fileutils
+  File "/usr/lib/python3/dist-packages/apport/fileutils.py", line 23, in <module>
+    from apport.packaging_impl import impl as packaging
+  File "/usr/lib/python3/dist-packages/apport/packaging_impl.py", line 23, in <module>
+    import apt
+  File "/usr/lib/python3/dist-packages/apt/__init__.py", line 23, in <module>
+    import apt_pkg
+ModuleNotFoundError: No module named 'apt_pkg'
+
+Original exception was:
+Traceback (most recent call last):
+  File "manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+fede@fede-Suma-1025:~/Projects/hotel-project$ cd ..
+fede@fede-Suma-1025:~/Projects$ cd ..
+fede@fede-Suma-1025:~$ pip install django
+Requirement already satisfied: django in /usr/lib/python2.7/dist-packages
+fede@fede-Suma-1025:~$ pip install django==1.1.7
+Collecting django==1.1.7
+  Could not find a version that satisfies the requirement django==1.1.7 (from versions: 1.1.3, 1.1.4, 1.2, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.2.6, 1.2.7, 1.3, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5, 1.3.6, 1.3.7, 1.4, 1.4.1, 1.4.2, 1.4.3, 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9, 1.4.10, 1.4.11, 1.4.12, 1.4.13, 1.4.14, 1.4.15, 1.4.16, 1.4.17, 1.4.18, 1.4.19, 1.4.20, 1.4.21, 1.4.22, 1.5, 1.5.1, 1.5.2, 1.5.3, 1.5.4, 1.5.5, 1.5.6, 1.5.7, 1.5.8, 1.5.9, 1.5.10, 1.5.11, 1.5.12, 1.6, 1.6.1, 1.6.2, 1.6.3, 1.6.4, 1.6.5, 1.6.6, 1.6.7, 1.6.8, 1.6.9, 1.6.10, 1.6.11, 1.7, 1.7.1, 1.7.2, 1.7.3, 1.7.4, 1.7.5, 1.7.6, 1.7.7, 1.7.8, 1.7.9, 1.7.10, 1.7.11, 1.8a1, 1.8b1, 1.8b2, 1.8rc1, 1.8, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8, 1.8.9, 1.8.10, 1.8.11, 1.8.12, 1.8.13, 1.8.14, 1.8.15, 1.8.16, 1.8.17, 1.8.18, 1.9a1, 1.9b1, 1.9rc1, 1.9rc2, 1.9, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.9.5, 1.9.6, 1.9.7, 1.9.8, 1.9.9, 1.9.10, 1.9.11, 1.9.12, 1.9.13, 1.10a1, 1.10b1, 1.10rc1, 1.10, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.10.5, 1.10.6, 1.10.7, 1.10.8, 1.11a1, 1.11b1, 1.11rc1, 1.11, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.11.5, 1.11.6, 1.11.7)
+No matching distribution found for django==1.1.7
+fede@fede-Suma-1025:~$ pip install django==1.11.7
+Collecting django==1.11.7
+  Downloading Django-1.11.7-py2.py3-none-any.whl (6.9MB)
+    100% |████████████████████████████████| 7.0MB 80kB/s 
+Requirement already satisfied: pytz in /usr/lib/python2.7/dist-packages (from django==1.11.7)
+Installing collected packages: django
+  Found existing installation: Django 1.8.7
+    Uninstalling Django-1.8.7:
+Exception:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/pip/basecommand.py", line 215, in main
+    status = self.run(options, args)
+  File "/usr/local/lib/python2.7/dist-packages/pip/commands/install.py", line 342, in run
+    prefix=options.prefix_path,
+  File "/usr/local/lib/python2.7/dist-packages/pip/req/req_set.py", line 778, in install
+    requirement.uninstall(auto_confirm=True)
+  File "/usr/local/lib/python2.7/dist-packages/pip/req/req_install.py", line 754, in uninstall
+    paths_to_remove.remove(auto_confirm)
+  File "/usr/local/lib/python2.7/dist-packages/pip/req/req_uninstall.py", line 115, in remove
+    renames(path, new_path)
+  File "/usr/local/lib/python2.7/dist-packages/pip/utils/__init__.py", line 267, in renames
+    shutil.move(old, new)
+  File "/usr/lib/python2.7/shutil.py", line 303, in move
+    os.unlink(src)
+OSError: [Errno 13] Permission denied: '/usr/bin/django-admin'
+fede@fede-Suma-1025:~$ sudo pip install django==1.11.7
+[sudo] password for fede: 
+The directory '/home/fede/.cache/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/home/fede/.cache/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting django==1.11.7
+  Downloading Django-1.11.7-py2.py3-none-any.whl (6.9MB)
+    100% |████████████████████████████████| 7.0MB 81kB/s 
+Requirement already satisfied: pytz in /usr/lib/python2.7/dist-packages (from django==1.11.7)
+Installing collected packages: django
+  Found existing installation: Django 1.8.7
+    Uninstalling Django-1.8.7:
+      Successfully uninstalled Django-1.8.7
+Successfully installed django-1.11.7
+fede@fede-Suma-1025:~$ cd Projects/hotel-project/
+fede@fede-Suma-1025:~/Projects/hotel-project$ python3.6 manage.py runserver
+Traceback (most recent call last):
+  File "manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 63, in apport_excepthook
+    from apport.fileutils import likely_packaged, get_recent_crashes
+  File "/usr/lib/python3/dist-packages/apport/__init__.py", line 5, in <module>
+    from apport.report import Report
+  File "/usr/lib/python3/dist-packages/apport/report.py", line 30, in <module>
+    import apport.fileutils
+  File "/usr/lib/python3/dist-packages/apport/fileutils.py", line 23, in <module>
+    from apport.packaging_impl import impl as packaging
+  File "/usr/lib/python3/dist-packages/apport/packaging_impl.py", line 23, in <module>
+    import apt
+  File "/usr/lib/python3/dist-packages/apt/__init__.py", line 23, in <module>
+    import apt_pkg
+ModuleNotFoundError: No module named 'apt_pkg'
+
+Original exception was:
+Traceback (most recent call last):
+  File "manage.py", line 8, in <module>
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+fede@fede-Suma-1025:~/Projects/hotel-project$ django-admin.py version
+1.11.7
+fede@fede-Suma-1025:~/Projects/hotel-project$ python3.6.3 -m django --version
+python3.6.3: command not found
+fede@fede-Suma-1025:~/Projects/hotel-project$ python3 -m django --version
+/usr/bin/python3: No module named django
+fede@fede-Suma-1025:~/Projects/hotel-project$ python3 -m django --version
+/usr/bin/python3: No module named django
+fede@fede-Suma-1025:~/Projects/hotel-project$ python3 -m django 
+/usr/bin/python3: No module named django
+fede@fede-Suma-1025:~/Projects/hotel-project$ virtualenv -p /usr/bin/python3.4 env
+
+The program 'virtualenv' is currently not installed. You can install it by typing:
+sudo apt install virtualenv
+fede@fede-Suma-1025:~/Projects/hotel-project$ 
+fede@fede-Suma-1025:~/Projects/hotel-project$ sudo apt-get install virtualevn
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Unable to locate package virtualevn
+fede@fede-Suma-1025:~/Projects/hotel-project$ sudo apt-get install virtualenv
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  linux-headers-4.10.0-32 linux-headers-4.10.0-32-generic
+  linux-headers-4.8.0-36 linux-headers-4.8.0-36-generic
+  linux-image-4.10.0-32-generic linux-image-4.8.0-36-generic
+  linux-image-extra-4.10.0-32-generic linux-image-extra-4.8.0-36-generic
+  linux-signed-image-4.10.0-32-generic
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  python3-virtualenv
+The following NEW packages will be installed:
+  python3-virtualenv virtualenv
+0 upgraded, 2 newly installed, 0 to remove and 7 not upgraded.
+Need to get 47,6 kB of archives.
+After this operation, 171 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ar.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 python3-virtualenv all 15.0.1+ds-3ubuntu1 [43,2 kB]
+Get:2 http://ar.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 virtualenv all 15.0.1+ds-3ubuntu1 [4.342 B]
+Fetched 47,6 kB in 2s (19,7 kB/s)
+Selecting previously unselected package python3-virtualenv.
+(Reading database ... 532816 files and directories currently installed.)
+Preparing to unpack .../python3-virtualenv_15.0.1+ds-3ubuntu1_all.deb ...
+Unpacking python3-virtualenv (15.0.1+ds-3ubuntu1) ...
+Selecting previously unselected package virtualenv.
+Preparing to unpack .../virtualenv_15.0.1+ds-3ubuntu1_all.deb ...
+Unpacking virtualenv (15.0.1+ds-3ubuntu1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up python3-virtualenv (15.0.1+ds-3ubuntu1) ...
+Setting up virtualenv (15.0.1+ds-3ubuntu1) ...
+fede@fede-Suma-1025:~/Projects/hotel-project$ virtualenv -p /usr/bin/python3.4 env
+The executable /usr/bin/python3.4 (from --python=/usr/bin/python3.4) does not exist
+fede@fede-Suma-1025:~/Projects/hotel-project$ virtualenv -p /usr/bin/python3.6.3 env
+The executable /usr/bin/python3.6.3 (from --python=/usr/bin/python3.6.3) does not exist
+fede@fede-Suma-1025:~/Projects/hotel-project$ virtualenv -p /usr/bin/python3 env
+Already using interpreter /usr/bin/python3
+Using base prefix '/usr'
+New python executable in /home/fede/Projects/hotel-project/env/bin/python3
+Also creating executable in /home/fede/Projects/hotel-project/env/bin/python
+Installing setuptools, pkg_resources, pip, wheel...done.
+fede@fede-Suma-1025:~/Projects/hotel-project$ cd ..
+fede@fede-Suma-1025:~/Projects$ cd ..
+fede@fede-Suma-1025:~$ virtualenv -p /usr/bin/python3 env
+Already using interpreter /usr/bin/python3
+Using base prefix '/usr'
+New python executable in /home/fede/env/bin/python3
+Also creating executable in /home/fede/env/bin/python
+Installing setuptools, pkg_resources, pip, wheel...done.
+fede@fede-Suma-1025:~$ . env/bin/activate
+(env) fede@fede-Suma-1025:~$ pip install -U pip
+Requirement already up-to-date: pip in ./env/lib/python3.5/site-packages
+(env) fede@fede-Suma-1025:~$ pip install django
+Collecting django
+  Using cached Django-1.11.7-py2.py3-none-any.whl
+Collecting pytz (from django)
+  Downloading pytz-2017.3-py2.py3-none-any.whl (511kB)
+    100% |████████████████████████████████| 512kB 423kB/s 
+Installing collected packages: pytz, django
+Successfully installed django-1.11.7 pytz-2017.3
+(env) fede@fede-Suma-1025:~$ cd Projects/hotel-project/
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ manage.py runserver
+manage.py: command not found
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, hotel_app, sessions.
+Run 'python manage.py migrate' to apply them.
+
+November 03, 2017 - 20:02:47
+Django version 1.11.7, using settings 'hotel_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+^Z
+[1]+  Stopped                 python3 manage.py runserver
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py migrationsUnknown command: 'migrations'
+Type 'manage.py help' for usage.
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, hotel_app, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying hotel_app.0001_initial... OK
+  Applying hotel_app.0002_auto_20171101_1138... OK
+  Applying hotel_app.0003_auto_20171101_1149... OK
+  Applying hotel_app.0004_auto_20171101_1150... OK
+  Applying sessions.0001_initial... OK
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py makemigrations
+No changes detected
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 03, 2017 - 20:03:31
+Django version 1.11.7, using settings 'hotel_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 03, 2017 - 20:04:41
+Django version 1.11.7, using settings 'hotel_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ exec ./manage.py runserver 0.0.0.0:<9944>
+bash: syntax error near unexpected token `9944'
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ exec ./manage.py runserver 0.0.0.0:9944
+bash: /home/fede/Projects/hotel-project/manage.py: Permission denied
+bash: exec: /home/fede/Projects/hotel-project/manage.py: cannot execute: Permission denied
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ sudo exec ./manage.py runserver 0.0.0.0:9944
+sudo: exec: command not found
+[1]+  Terminated              python3 manage.py runserver
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ sudo exec ./manage.py runserver 0.0.0.0:9944
+sudo: exec: command not found
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ chmod +x runserver
+chmod: cannot access 'runserver': No such file or directory
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ sudo chmod +x runserver
+chmod: cannot access 'runserver': No such file or directory
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py runserverPerforming system checks...
+
+System check identified no issues (0 silenced).
+November 03, 2017 - 20:10:26
+Django version 1.11.7, using settings 'hotel_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[03/Nov/2017 20:10:38] "GET / HTTP/1.1" 200 4057
+[03/Nov/2017 20:10:38] "GET /static/css/header.css HTTP/1.1" 200 914
+[03/Nov/2017 20:10:38] "GET /static/css/base.css HTTP/1.1" 200 1300
+[03/Nov/2017 20:10:38] "GET /static/css/footer.css HTTP/1.1" 200 740
+[03/Nov/2017 20:10:38] "GET /static/css/bootstrap.css HTTP/1.1" 200 128468
+[03/Nov/2017 20:10:38] "GET /static/img/favicon.ico HTTP/1.1" 200 206794
+[03/Nov/2017 20:10:39] "GET /static/js/jquery.js HTTP/1.1" 200 95785
+[03/Nov/2017 20:10:39] "GET /static/js/bootstrap.js HTTP/1.1" 200 37045
+[03/Nov/2017 20:10:39] "GET /static/img/background.jpg HTTP/1.1" 200 162273
+[03/Nov/2017 20:10:39] "GET /static/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+^Z
+[1]+  Stopped                 python3 manage.py runserver
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 03, 2017 - 20:18:04
+Django version 1.11.7, using settings 'hotel_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ sudo exec ./manage.py runserver 0.0.0.0:9944
+sudo: exec: command not found
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ sudo exec ./manage.py runserver 0.0.0.0:9944
+sudo: exec: command not found
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py runserverPerforming system checks...
+
+System check identified no issues (0 silenced).
+November 03, 2017 - 20:19:09
+Django version 1.11.7, using settings 'hotel_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ ^C
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ ^C
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ ^C
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ ^C
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ ^C
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ ^C
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ ^C
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ sudo chmod +x runserver
+chmod: cannot access 'runserver': No such file or directory
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ sudo exec ./manage.py runserver 0.0.0.0:9944
+sudo: exec: command not found
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ 
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ sudo kill `sudo lsof -t -i:8000`
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py runserverPerforming system checks...
+
+System check identified no issues (0 silenced).
+November 03, 2017 - 20:21:53
+Django version 1.11.7, using settings 'hotel_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$ python3 manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 03, 2017 - 20:22:05
+Django version 1.11.7, using settings 'hotel_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) fede@fede-Suma-1025:~/Projects/hotel-project$

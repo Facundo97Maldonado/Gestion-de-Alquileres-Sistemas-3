@@ -1,0 +1,23 @@
+.navbar-brand {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1e767+0,feb645+100;Yellow+3D */
+    background: #f1e767; /* Old browsers */
+    background: -moz-linear-gradient(top, #f1e767 0%, #feb645 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #f1e767 0%,#feb645 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #f1e767 0%,#feb645 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645',GradientType=0 ); /* IE6-9 */
+    color: #000;
+    margin: 0px 10px !important;
+    margin-right: 40px !important;
+    border-radius: 5px;
+    text-shadow: 0px 0px 3px #000;
+    padding: 1px 10px;
+}
+
+.navbar-brand img {
+    height: inherit;
+    display: inline-block;
+}
+
+.navbar-default {
+    border-radius: 0px;
+}
